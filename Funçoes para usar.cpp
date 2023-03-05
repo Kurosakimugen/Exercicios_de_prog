@@ -15,6 +15,15 @@ int potencia(int numero,int expoente) {
     return resultado;
 }
 
+bool leap_year(int y) {
+    bool resultado = false;
+    if(y % 400 == 0 || (y % 4 == 0 && y % 100 != 0)) {
+        resultado = true;
+        return resultado;
+    }
+    return resultado;
+}
+
 bool primo(int numero) {
     bool resultado = true;
     if (numero == 1) {
@@ -59,6 +68,72 @@ int Numero_de_digitos (int numero) {
         contador++
     }
     return contador;
+}
+
+int adigits(int a, int b, int c) {  //mal otimizado
+    int resultado = 0;
+    if (a >= b && a >= c) {
+        resultado = 100 * a;
+        if (b >= c) {
+            resultado += 10 * b + c;
+            return resultado;
+        }
+        else {
+            resultado += 10 * c + b;
+            return resultado;
+        }
+    }
+    if (c >= b && c >= a) {
+        resultado = 100 * c;
+        if (b >= a) {
+            resultado += 10 * b + a;
+            return resultado;
+        }
+        else {
+            resultado += 10 * a + b;
+            return resultado;
+        }
+    }
+    if (b >= c && b >= a) {
+        resultado = 100 * b;
+        if (c >= a) {
+            resultado += 10 * c + a;
+            return resultado;
+        }
+        else {
+            resultado += 10 * a + c;
+            return resultado;
+        }
+    }
+    return 0;
+}
+
+int dias_do_mes (int mes, int ano) {
+    int dias;
+    switch (mes) {
+        case 2:
+            dias = leap_year(ano) ? 29 : 28; //Fevereiro
+            break;
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            dias = 31;
+            break;
+        default:
+            dias = 30;
+            break;
+    }
+    return dias;
+}
+
+int algoritmo_de_euclides (int a, int b) { //algoritmo para calcular o maximo divisor comum
+    int resultado;
+    if (b == 0) {
+        resultado = a;
+        return resultado;
+    }
+    else {
+        resultado = algoritmo_de_euclides(b, a % b);
+        return resultado;
+    }
 }
 
 int main() {
