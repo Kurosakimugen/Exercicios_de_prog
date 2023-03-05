@@ -124,8 +124,8 @@ int dias_do_mes (int mes, int ano) {
     return dias;
 }
 
-int algoritmo_de_euclides (int a, int b) { //algoritmo para calcular o maximo divisor comum
-    int resultado;
+long algoritmo_de_euclides (int a, int b) { //algoritmo para calcular o maximo divisor comum
+    long resultado;
     if (b == 0) {
         resultado = a;
         return resultado;
@@ -135,7 +135,6 @@ int algoritmo_de_euclides (int a, int b) { //algoritmo para calcular o maximo di
         return resultado;
     }
 }
-
 int main() {
     return 0;
 }
