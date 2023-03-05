@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int potencia(int numero,int expoente) {
     int resultado = 1;
     if (expoente == 0) {
