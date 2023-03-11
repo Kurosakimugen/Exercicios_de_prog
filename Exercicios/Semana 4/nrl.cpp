@@ -43,11 +43,15 @@ int nrl(const char s[], char low[]) {
         }
         else {
             low += alfabeto[i];
-            resultado++;
             i++;
             continue;
         }
-    } 
+    }
+    i = 0;
+    while(low[i] != '\0') {
+        resultado++;
+        i++;
+    }
     return resultado;
 }
 
